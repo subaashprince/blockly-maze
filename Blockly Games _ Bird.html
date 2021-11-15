@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)https://blockly.games/bird?lang=en&level=3 -->
+<html dir="ltr" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style id="blockly-renderer-style-geras-classic">.geras-renderer.classic-theme .blocklyText, 
+.geras-renderer.classic-theme .blocklyFlyoutLabelText {
+font: normal 11pt sans-serif;
+}
+.geras-renderer.classic-theme .blocklyText {
+fill: #fff;
+}
+.geras-renderer.classic-theme .blocklyNonEditableText>rect,
+.geras-renderer.classic-theme .blocklyEditableText>rect {
+fill: #fff;
+fill-opacity: .6;
+stroke: none;
+}
+.geras-renderer.classic-theme .blocklyNonEditableText>text,
+.geras-renderer.classic-theme .blocklyEditableText>text {
+fill: #000;
+}
+.geras-renderer.classic-theme .blocklyFlyoutLabelText {
+fill: #000;
+}
+.geras-renderer.classic-theme .blocklyText.blocklyBubbleText {
+fill: #000;
+}
+.geras-renderer.classic-theme .blocklyEditableText:not(.editing):hover>rect {
+stroke: #fff;
+stroke-width: 2;
+}
+.geras-renderer.classic-theme .blocklyHtmlInput {
+font-family: sans-serif;
+font-weight: normal;
+}
+.geras-renderer.classic-theme .blocklySelected>.blocklyPath {
+stroke: #fc3;
+stroke-width: 3px;
+}
+.geras-renderer.classic-theme .blocklyHighlightedConnectionPath {
+stroke: #fc3;
+}
+.geras-renderer.classic-theme .blocklyReplaceable .blocklyPath {
+fill-opacity: .5;
+}
+.geras-renderer.classic-theme .blocklyReplaceable .blocklyPathLight,
+.geras-renderer.classic-theme .blocklyReplaceable .blocklyPathDark {
+display: none;
+}
+.geras-renderer.classic-theme .blocklyInsertionMarker>.blocklyPath {
+fill-opacity: 0.2;
+stroke: none;
+}
+.geras-renderer.classic-theme .blocklyInsertionMarker>.blocklyPathLight,
+.geras-renderer.classic-theme .blocklyInsertionMarker>.blocklyPathDark {
+fill-opacity: 0.2;
+stroke: none;
+}</style><style id="blockly-common-style">.blocklySvg {
+background-color: #fff;
+outline: none;
+overflow: hidden;
+position: absolute;
+display: block;
+}
+.blocklyWidgetDiv {
+display: none;
+position: absolute;
+z-index: 99999;
+}
+.injectionDiv {
+height: 100%;
+position: relative;
+overflow: hidden;
+touch-action: none;
+}
+.blocklyNonSelectable {
+user-select: none;
+-ms-user-select: none;
+-webkit-user-select: none;
+}
+.blocklyWsDragSurface {
+display: none;
+position: absolute;
+top: 0;
+left: 0;
+}
+.blocklyWsDragSurface.blocklyOverflowVisible {
+overflow: visible;
+}
+.blocklyBlockDragSurface {
+display: none;
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+overflow: visible !important;
+z-index: 50;
+}
+.blocklyBlockCanvas.blocklyCanvasTransitioning,
+.blocklyBubbleCanvas.blocklyCanvasTransitioning {
+transition: transform .5s;
+}
+.blocklyTooltipDiv {
+background-color: #ffffc7;
+border: 1px solid #ddc;
+box-shadow: 4px 4px 20px 1px rgba(0,0,0,.15);
+color: #000;
+display: none;
+font: 9pt sans-serif;
+opacity: .9;
+padding: 2px;
+position: absolute;
+z-index: 100000;
+}
+.blocklyDropDownDiv {
+position: absolute;
+left: 0;
+top: 0;
+z-index: 1000;
+display: none;
+border: 1px solid;
+border-color: #dadce0;
+background-color: #fff;
+border-radius: 2px;
+padding: 4px;
+box-shadow: 0 0 3px 1px rgba(0,0,0,.3);
+}
+.blocklyDropDownDiv.blocklyFocused {
+box-shadow: 0 0 6px 1px rgba(0,0,0,.3);
+}
+.blocklyDropDownContent {
+max-height: 300px;
+overflow: auto;
+overflow-x: hidden;
+position: relative;
+}
+.blocklyDropDownArrow {
+position: absolute;
+left: 0;
+top: 0;
+width: 16px;
+height: 16px;
+z-index: -1;
+background-color: inherit;
+border-color: inherit;
+}
+.blocklyDropDownButton {
+display: inline-block;
+float: left;
+padding: 0;
+margin: 4px;
+border-radius: 4px;
+outline: none;
+border: 1px solid;
+transition: box-shadow .1s;
+cursor: pointer;
+}
+.blocklyArrowTop {
+border-top: 1px solid;
+border-left: 1px solid;
+border-top-left-radius: 4px;
+border-color: inherit;
+}
+.blocklyArrowBottom {
+border-bottom: 1px solid;
+border-right: 1px solid;
+border-bottom-right-radius: 4px;
+border-color: inherit;
+}
+.blocklyResizeSE {
+cursor: se-resize;
+fill: #aaa;
+}
+.blocklyResizeSW {
+cursor: sw-resize;
+fill: #aaa;
+}
+.blocklyResizeLine {
+stroke: #515A5A;
+stroke-width: 1;
+}
+.blocklyHighlightedConnectionPath {
+fill: none;
+stroke: #fc3;
+stroke-width: 4px;
+}
+.blocklyPathLight {
+fill: none;
+stroke-linecap: round;
+stroke-width: 1;
+}
+.blocklySelected>.blocklyPathLight {
+display: none;
+}
+.blocklyDraggable {
+cursor: url("third-party/blockly/media/handopen.cur"), auto;
+cursor: grab;
+cursor: -webkit-grab;
+}
+.blocklyDragging {
+cursor: url("third-party/blockly/media/handclosed.cur"), auto;
+cursor: grabbing;
+cursor: -webkit-grabbing;
+}
+.blocklyDraggable:active {
+cursor: url("third-party/blockly/media/handclosed.cur"), auto;
+cursor: grabbing;
+cursor: -webkit-grabbing;
+}
+.blocklyBlockDragSurface .blocklyDraggable {
+cursor: url("third-party/blockly/media/handclosed.cur"), auto;
+cursor: grabbing;
+cursor: -webkit-grabbing;
+}
+.blocklyDragging.blocklyDraggingDelete {
+cursor: url("third-party/blockly/media/handdelete.cur"), auto;
+}
+.blocklyDragging>.blocklyPath,
+.blocklyDragging>.blocklyPathLight {
+fill-opacity: .8;
+stroke-opacity: .8;
+}
+.blocklyDragging>.blocklyPathDark {
+display: none;
+}
+.blocklyDisabled>.blocklyPath {
+fill-opacity: .5;
+stroke-opacity: .5;
+}
+.blocklyDisabled>.blocklyPathLight,
+.blocklyDisabled>.blocklyPathDark {
+display: none;
+}
+.blocklyInsertionMarker>.blocklyPath,
+.blocklyInsertionMarker>.blocklyPathLight,
+.blocklyInsertionMarker>.blocklyPathDark {
+fill-opacity: .2;
+stroke: none;
+}
+.blocklyMultilineText {
+font-family: monospace;
+}
+.blocklyNonEditableText>text {
+pointer-events: none;
+}
+.blocklyFlyout {
+position: absolute;
+z-index: 20;
+}
+.blocklyText text {
+cursor: default;
+}
+.blocklySvg text,
+.blocklyBlockDragSurface text {
+user-select: none;
+-ms-user-select: none;
+-webkit-user-select: none;
+cursor: inherit;
+}
+.blocklyHidden {
+display: none;
+}
+.blocklyFieldDropdown:not(.blocklyHidden) {
+display: block;
+}
+.blocklyIconGroup {
+cursor: default;
+}
+.blocklyIconGroup:not(:hover),
+.blocklyIconGroupReadonly {
+opacity: .6;
+}
+.blocklyIconShape {
+fill: #00f;
+stroke: #fff;
+stroke-width: 1px;
+}
+.blocklyIconSymbol {
+fill: #fff;
+}
+.blocklyMinimalBody {
+margin: 0;
+padding: 0;
+}
+.blocklyHtmlInput {
+border: none;
+border-radius: 4px;
+height: 100%;
+margin: 0;
+outline: none;
+padding: 0;
+width: 100%;
+text-align: center;
+display: block;
+box-sizing: border-box;
+}
+.blocklyHtmlInput::-ms-clear {
+display: none;
+}
+.blocklyMainBackground {
+stroke-width: 1;
+stroke: #c6c6c6;
+}
+.blocklyMutatorBackground {
+fill: #fff;
+stroke: #ddd;
+stroke-width: 1;
+}
+.blocklyFlyoutBackground {
+fill: #ddd;
+fill-opacity: .8;
+}
+.blocklyMainWorkspaceScrollbar {
+z-index: 20;
+}
+.blocklyFlyoutScrollbar {
+z-index: 30;
+}
+.blocklyScrollbarHorizontal,
+.blocklyScrollbarVertical {
+position: absolute;
+outline: none;
+}
+.blocklyScrollbarBackground {
+opacity: 0;
+}
+.blocklyScrollbarHandle {
+fill: #ccc;
+}
+.blocklyScrollbarBackground:hover+.blocklyScrollbarHandle,
+.blocklyScrollbarHandle:hover {
+fill: #bbb;
+}
+.blocklyFlyout .blocklyScrollbarHandle {
+fill: #bbb;
+}
+.blocklyFlyout .blocklyScrollbarBackground:hover+.blocklyScrollbarHandle,
+.blocklyFlyout .blocklyScrollbarHandle:hover {
+fill: #aaa;
+}
+.blocklyInvalidInput {
+background: #faa;
+}
+.blocklyVerticalMarker {
+stroke-width: 3px;
+fill: rgba(255,255,255,.5);
+pointer-events: none;
+}
+.blocklyComputeCanvas {
+position: absolute;
+width: 0;
+height: 0;
+}
+.blocklyNoPointerEvents {
+pointer-events: none;
+}
+.blocklyContextMenu {
+border-radius: 4px;
+max-height: 100%;
+}
+.blocklyDropdownMenu {
+border-radius: 2px;
+padding: 0 !important;
+}
+.blocklyDropdownMenu .blocklyMenuItem {
+padding-left: 28px;
+}
+.blocklyDropdownMenu .blocklyMenuItemRtl {
+padding-left: 5px;
+padding-right: 28px;
+}
+.blocklyWidgetDiv .blocklyMenu {
+background: #fff;
+border: 1px solid transparent;
+box-shadow: 0 0 3px 1px rgba(0,0,0,.3);
+font: normal 13px Arial, sans-serif;
+margin: 0;
+outline: none;
+padding: 4px 0;
+position: absolute;
+overflow-y: auto;
+overflow-x: hidden;
+max-height: 100%;
+z-index: 20000;
+}
+.blocklyWidgetDiv .blocklyMenu.blocklyFocused {
+box-shadow: 0 0 6px 1px rgba(0,0,0,.3);
+}
+.blocklyDropDownDiv .blocklyMenu {
+background: inherit;
+border: inherit;
+font: normal 13px "Helvetica Neue", Helvetica, sans-serif;
+outline: none;
+position: relative;
+z-index: 20000;
+}
+.blocklyMenuItem {
+border: none;
+color: #000;
+cursor: pointer;
+list-style: none;
+margin: 0;
+min-width: 7em;
+padding: 6px 15px;
+white-space: nowrap;
+}
+.blocklyMenuItemDisabled {
+color: #ccc;
+cursor: inherit;
+}
+.blocklyMenuItemHighlight {
+background-color: rgba(0,0,0,.1);
+}
+.blocklyMenuItemCheckbox {
+height: 16px;
+position: absolute;
+width: 16px;
+}
+.blocklyMenuItemSelected .blocklyMenuItemCheckbox {
+background: url(third-party/blockly/media/sprites.png) no-repeat -48px -16px;
+float: left;
+margin-left: -24px;
+position: static;
+}
+.blocklyMenuItemRtl .blocklyMenuItemCheckbox {
+float: right;
+margin-right: -24px;
+}
+.blocklyAngleCircle {
+stroke: #444;
+stroke-width: 1;
+fill: #ddd;
+fill-opacity: .8;
+}
+.blocklyAngleMarks {
+stroke: #444;
+stroke-width: 1;
+}
+.blocklyAngleGauge {
+fill: #f88;
+fill-opacity: .8;
+pointer-events: none;
+}
+.blocklyAngleLine {
+stroke: #f00;
+stroke-width: 2;
+stroke-linecap: round;
+pointer-events: none;
+}</style>
+  
+  <meta name="google" value="notranslate">
+  <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="description" content="Bird is a deep-dive into conditionals. Control-flow is explored with increasingly complex conditions.">
+  <title>Blockly Games : Bird</title>
+  <link rel="stylesheet" href="./Blockly Games _ Bird_files/common.css">
+  <link rel="stylesheet" href="./Blockly Games _ Bird_files/style.css">
+  <script src="./Blockly Games _ Bird_files/boot.js.download"></script><script src="./Blockly Games _ Bird_files/compressed.js.download" type="text/javascript"></script>
+<script async="" src="./Blockly Games _ Bird_files/analytics.js.download"></script><script type="text/javascript" src="./Blockly Games _ Bird_files/compressed.js(1).download"></script><link rel="stylesheet" type="text/css" href="./Blockly Games _ Bird_files/prettify.css"><script type="text/javascript" src="./Blockly Games _ Bird_files/prettify.js.download"></script></head>
+<body><div style="display: none"><span id="Games_name">Blockly Games</span><span id="Games_puzzle">Puzzle</span><span id="Games_maze">Maze</span><span id="Games_bird">Bird</span><span id="Games_turtle">Turtle</span><span id="Games_movie">Movie</span><span id="Games_music">Music</span><span id="Games_pondTutor">Pond Tutor</span><span id="Games_pond">Pond</span><span id="Games_genetics">Genetics</span><span id="Games_linesOfCode1">You solved this level with 1 line of JavaScript:</span><span id="Games_linesOfCode2">You solved this level with %1 lines of JavaScript:</span><span id="Games_nextLevel">Are you ready for level %1?</span><span id="Games_finalLevel">Are you ready for the next challenge?</span><span id="Games_submitTitle">Title:</span><span id="Games_linkTooltip">Save and link to blocks.</span><span id="Games_runTooltip">Run the program you wrote.</span><span id="Games_runProgram">Run Program</span><span id="Games_resetTooltip">Stop the program and reset the level.</span><span id="Games_resetProgram">Reset</span><span id="Games_help">Help</span><span id="Games_catLogic">Logic</span><span id="Games_catLoops">Loops</span><span id="Games_catMath">Math</span><span id="Games_catText">Text</span><span id="Games_catLists">Lists</span><span id="Games_catColour">Colour</span><span id="Games_catVariables">Variables</span><span id="Games_catProcedures">Functions</span><span id="Games_httpRequestError">There was a problem with the request.</span><span id="Games_linkAlert">Share your blocks with this link:
+
+%1</span><span id="Games_hashError">Sorry, '%1' doesn't correspond with any saved program.</span><span id="Games_xmlError">Could not load your saved file. Perhaps it was created with a different version of Blockly?</span><span id="Games_submitted">Thank you for this program!  If our staff of trained monkeys like it, they will publish it to the gallery within a couple of days.</span><span id="Games_listVariable">list</span><span id="Games_textVariable">text</span><span id="Games_breakLink">Once you start editing JavaScript, you can't go back to editing blocks. Is this OK?</span><span id="Games_blocks">Blocks</span></div><div style="display: none"><span id="Bird_noWorm">does not have worm</span><span id="Bird_heading">heading</span><span id="Bird_noWormTooltip">The condition when the bird has not gotten the \nworm. </span><span id="Bird_headingTooltip">Move in the direction of the given angle: 0 is \nto the right, 90 is straight up, etc. </span><span id="Bird_positionTooltip">x and y mark the bird's position. \nWhen x = 0 the bird is near the left \nedge, when x = 100 it's near the \nright edge. When y = 0 the bird is \nat the bottom, when y = 100 it's at \nthe top. </span></div><table width="100%"><tbody><tr><td><h1><span id="title"><a href="https://blockly.games/?lang=en">Blockly Games</a> : Bird</span> &nbsp;  <a class="level_dot level_done" id="level1" href="https://blockly.games/bird?lang=en&amp;level=1"></a> <a class="level_dot level_done" id="level2" href="https://blockly.games/bird?lang=en&amp;level=2"></a> <span class="level_number level_done level_done" id="level3">3</span> <a class="level_dot" id="level4" href="https://blockly.games/bird?lang=en&amp;level=4"></a> <a class="level_dot" id="level5" href="https://blockly.games/bird?lang=en&amp;level=5"></a> <a class="level_dot" id="level6" href="https://blockly.games/bird?lang=en&amp;level=6"></a> <a class="level_dot" id="level7" href="https://blockly.games/bird?lang=en&amp;level=7"></a> <a class="level_dot" id="level8" href="https://blockly.games/bird?lang=en&amp;level=8"></a> <a class="level_dot" id="level9" href="https://blockly.games/bird?lang=en&amp;level=9"></a> <a class="level_number" id="level10" href="https://blockly.games/bird?lang=en&amp;level=10">10</a></h1></td><td id="header_cta" class="farSide"><select id="languageMenu"><option value="ig">Asụsụ Igbo</option><option value="id">Bahasa Indonesia</option><option value="ms">Bahasa Melayu</option><option value="br">Brezhoneg</option><option value="ca">Català</option><option value="da">Dansk</option><option value="de">Deutsch</option><option value="en">English</option><option value="es">Español</option><option value="eo">Esperanto</option><option value="eu">Euskara</option><option value="fr">Français</option><option value="fo">Føroyskt</option><option value="gl">Galego</option><option value="ha">Hausa</option><option value="hr">Hrvatski</option><option value="ia">Interlingua</option><option value="it">Italiano</option><option value="lv">Latviešu</option><option value="lt">Lietuvių</option><option value="hu">Magyar</option><option value="nl">Nederlands, Vlaams</option><option value="nb">Norsk Bokmål</option><option value="pms">Piemontèis</option><option value="pl">Polski</option><option value="pt">Português</option><option value="pt-br">Português Brasileiro</option><option value="ro">Română</option><option value="sc">Sardu</option><option value="sq">Shqip</option><option value="sk">Slovenčina</option><option value="sl">Slovenščina</option><option value="sr-latn">Srpski</option><option value="fi">Suomi</option><option value="sv">Svenska</option><option value="kab">Taqbaylit</option><option value="be-tarask">Taraškievica</option><option value="vi">Tiếng Việt</option><option value="tr">Türkçe</option><option value="yo">Èdè Yorùbá</option><option value="is">Íslenska</option><option value="cs">Česky</option><option value="el">Ελληνικά</option><option value="ru">Русский</option><option value="sr">Српски</option><option value="uk">Українська</option><option value="be">беларускі</option><option value="bg">български език</option><option value="hy">հայերէն</option><option value="he">עברית</option><option value="ar">العربية</option><option value="ur">اُردُو‬</option><option value="fa">فارسی</option><option value="hi">हिन्दी</option><option value="bn">বাংলা</option><option value="kn">ಕನ್ನಡ</option><option value="th">ภาษาไทย</option><option value="my">မြန်မာစာ</option><option value="ti">ትግርኛ</option><option value="am">አማርኛ</option><option value="ja">日本語</option><option value="zh-hant">正體中文</option><option value="zh-hans">简体中文</option><option value="ko">한국어</option></select>&nbsp;<button id="linkButton" title="Save and link to blocks."><img src="./Blockly Games _ Bird_files/1x1.gif" class="link icon21"></button></td></tr></tbody></table><div id="visualization"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="svgBird" width="400px" height="400px"><line x1="200" y1="200" x2="200" y2="0" stroke="#CCB" stroke-width="10" stroke-linecap="round"></line><line x1="-20" y1="420" x2="-20" y2="-20.000000000000018" stroke="#CCB" stroke-width="10" stroke-linecap="round"></line><line x1="-20" y1="-20.000000000000018" x2="420" y2="-20.000000000000018" stroke="#CCB" stroke-width="10" stroke-linecap="round"></line><line x1="420" y1="-20.000000000000018" x2="420" y2="420" stroke="#CCB" stroke-width="10" stroke-linecap="round"></line><line x1="420" y1="420" x2="-20" y2="420" stroke="#CCB" stroke-width="10" stroke-linecap="round"></line><image id="nest" height="100" width="100" xlink:href="bird/nest.png" x="270" y="70.00000000000001"></image><image id="worm" height="100" width="100" xlink:href="bird/worm.png" x="150" y="270" style="visibility: hidden;"></image><clippath id="birdClipPath"><rect id="clipRect" height="120" width="120" x="259.5115715797135" y="60.693070273765855"></rect></clippath><image id="bird" height="480" width="1440" clip-path="url(#birdClipPath)" xlink:href="bird/birds-120.png" x="259.5115715797135" y="-299.30692972623416" transform="rotate(5.173557153725035, 319.5115715797135, 120.69307027376585)"></image><rect class="edges" height="400" width="400"></rect></svg></div><table width="400"><tbody><tr><td style="width: 190px;"></td><td><button id="runButton" class="primary" title="Run the program you wrote." style="display: none;"><img src="./Blockly Games _ Bird_files/1x1.gif" class="run icon21"> Run Program</button><button id="resetButton" class="primary" style="display: inline; min-width: 155px;" title="Stop the program and reset the level."><img src="./Blockly Games _ Bird_files/1x1.gif" class="stop icon21"> Reset</button></td></tr></tbody></table><xml id="toolbox" xmlns="https://developers.google.com/blockly/xml"><block type="bird_heading"></block><block type="bird_noWorm"></block></xml><div id="blockly" style="top: 60px; left: 420px; width: 1000px;"><div class="injectionDiv geras-renderer classic-theme" tabindex="0" aria-label="Blockly Workspace" dir="LTR"><svg xmlns="http://www.w3.org/2000/svg" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="blocklySvg" tabindex="0" width="1000px" height="662px"><defs><pattern id="blocklyGridPattern9176886790877912" patternUnits="userSpaceOnUse" width="100" height="100" x="188.01141357421875" y="0"><line stroke-width="1" x1="0" y1="0.5" x2="1" y2="0.5"></line></pattern></defs><g class="blocklyWorkspace"><rect height="100%" width="100%" class="blocklyMainBackground" style="fill: url(&quot;#blocklyGridPattern9176886790877912&quot;);"></rect><g class="blocklyTrash" style="opacity: 0.4;" transform="translate(933,582)"><clippath id="blocklyTrashBodyClipPath34554991078913755"><rect width="47" height="44" y="16"></rect></clippath><image width="96" x="0" height="124" y="-32" clip-path="url(#blocklyTrashBodyClipPath34554991078913755)" xlink:href="third-party/blockly/media/sprites.png"></image><clippath id="blocklyTrashLidClipPath34554991078913755"><rect width="47" height="16"></rect></clippath><image width="96" x="0" height="124" y="-32" clip-path="url(#blocklyTrashLidClipPath34554991078913755)" xlink:href="third-party/blockly/media/sprites.png" transform="rotate(0,43,14)"></image></g><g class="blocklyBlockCanvas" transform="translate(188.01141357421875,0) scale(1)"><g class="blocklyCursor"><g width="100" height="5"><rect width="100" height="5" style="display: none"><animate attributeType="XML" attributeName="fill" dur="1s" values="#cc0a0a;transparent;transparent;" repeatCount="indefinite"></animate></rect><rect class="blocklyVerticalMarker" rx="10" ry="10" style="display: none"></rect><path transform="" style="display: none"><animate attributeType="XML" attributeName="fill" dur="1s" values="#cc0a0a;transparent;transparent;" repeatCount="indefinite"></animate></path><path transform="" style="display: none" fill="none" stroke-width="4"><animate attributeType="XML" attributeName="stroke" dur="1s" values="#cc0a0a;transparent;transparent;" repeatCount="indefinite"></animate></path></g></g><g data-id="Uv1Bqd+`?Jl{B@iP;6Y9" class="blocklyDraggable" transform="translate(10,10)"><path class="blocklyPathDark" transform="translate(1,1)" fill="#496684" d=" m 0,0  m 0,8 a 8 8 0 0,1 8,-8  h 68.89332580566406  v 5  H 76.89332580566406  V 5  H 76.89332580566406  c 0,10  -8,-8  -8,7.5  s 8,-2.5  8,7.5  v 1  H 76.89332580566406  V 25  H 76.89332580566406  l -6,4  -3,0  -6,-4  h -7 a 8 8 0 0,0 -8,8  v 9 a 8 8 0 0,0 8,8  H 76.89332580566406  H 76.89332580566406  V 60  H 76.89332580566406  l -6,4  -3,0  -6,-4  h -7 a 8 8 0 0,0 -8,8  v 9 a 8 8 0 0,0 8,8  H 76.89332580566406  H 76.89332580566406  V 85  V 95  h -68.89332580566406 a 8 8 0 0,1 -8,-8 z
+"></path><path class="blocklyPath" stroke="none" fill="#5b80a5" d=" m 0,0  m 0,8 a 8 8 0 0,1 8,-8  h 68.89332580566406  v 5  H 76.89332580566406  V 5  H 76.89332580566406  c 0,10  -8,-8  -8,7.5  s 8,-2.5  8,7.5  v 1  H 76.89332580566406  V 25  H 76.89332580566406  l -6,4  -3,0  -6,-4  h -7 a 8 8 0 0,0 -8,8  v 9 a 8 8 0 0,0 8,8  H 76.89332580566406  H 76.89332580566406  V 60  H 76.89332580566406  l -6,4  -3,0  -6,-4  h -7 a 8 8 0 0,0 -8,8  v 9 a 8 8 0 0,0 8,8  H 76.89332580566406  H 76.89332580566406  V 85  V 95  h -68.89332580566406 a 8 8 0 0,1 -8,-8 z
+"></path><path class="blocklyPathLight" stroke="#8ca6c0" d=" m 0,0  m 0.5,8 a 7.5 7.5 0 0,1 8,-7.5  H 76.39332580566406  H 76.39332580566406  M 76.89332580566406,5  m -5,14.3  l 3.68,-2.1  M 46.89332580566406,50  m 1.9895923599143455,-1.9895923599143455 a 8.5 8.5 0 0,0 6.0104076400856545,2.4895923599143455  l 21.5,0  H 76.39332580566406  M 46.89332580566406,85  m 1.9895923599143455,-1.9895923599143455 a 8.5 8.5 0 0,0 6.0104076400856545,2.4895923599143455  l 21.5,0  H 76.39332580566406  M 0,95  m 2.6966991411008934,-2.6966991411008934 a 7.5 7.5 0 0,1 -2.1966991411008934,-5.303300858899107  V 8 
+"></path><g data-id="`C:;WyN)~g}L%?xUEC3@" class="blocklyDraggable" style="display: block;" transform="translate(69.89332580566406,0)"><path class="blocklyPathDark" transform="translate(1,1)" fill="#844966" d=" m 8,0  h 152.01141357421875  v 5  H 160.01141357421875  V 5  H 160.01141357421875  V 21  H 160.01141357421875  V 21  V 25  h -152.01141357421875  H 8  V 20  c 0,-10  -8,8  -8,-7.5  s 8,2.5  8,-7.5 z
+"></path><path class="blocklyPath" stroke="none" fill="#a55b80" d=" m 8,0  h 152.01141357421875  v 5  H 160.01141357421875  V 5  H 160.01141357421875  V 21  H 160.01141357421875  V 21  V 25  h -152.01141357421875  H 8  V 20  c 0,-10  -8,8  -8,-7.5  s 8,2.5  8,-7.5 z
+"></path><path class="blocklyPathLight" stroke="#c08ca6" d=" m 8,0  m 0.5,0.5  H 159.51141357421875  H 159.51141357421875  M 8.5,24.5  M 8.5,24.5  V 20  v -1.5  m -7.36,-0.5  q -1.52,-5.5  0,-11  m 7.36,1  V 0.5 
+"></path><g transform="translate(18,5)"><text class="blocklyText" x="0" y="13">does&nbsp;not&nbsp;have&nbsp;worm</text></g></g><g data-id="L?-c=xA[?4$:U?MXLArk" class="blocklyDraggable" style="display: block;" transform="translate(47.89332580566406,26)"><path class="blocklyPathDark" transform="translate(1,1)" fill="#7a4984" d=" m 0,0  m 0,8 a 8 8 0 0,1 8,-8  h 7  l 6,4  3,0  6,-4  h 82.49818420410156  v 5  H 112.49818420410156  V 5  H 112.49818420410156  V 21  H 112.49818420410156  V 21  V 25  h -104.49818420410156 a 8 8 0 0,1 -8,-8 z
+"></path><path class="blocklyPath" stroke="none" fill="#995ba5" d=" m 0,0  m 0,8 a 8 8 0 0,1 8,-8  h 7  l 6,4  3,0  6,-4  h 82.49818420410156  v 5  H 112.49818420410156  V 5  H 112.49818420410156  V 21  H 112.49818420410156  V 21  V 25  h -104.49818420410156 a 8 8 0 0,1 -8,-8 z
+" filter="none"></path><path class="blocklyPathLight" stroke="#b88cc0" d=" m 0,0  m 0.5,8 a 7.5 7.5 0 0,1 8,-7.5  H 14.5  h 0.5  l 6,4  3,0  6,-4  H 111.99818420410156  H 111.99818420410156  M 0,25  m 2.6966991411008934,-2.6966991411008934 a 7.5 7.5 0 0,1 -2.1966991411008934,-5.303300858899107  V 8 
+" style="display: inline;"></path><g transform="translate(10,5)"><text class="blocklyText" x="0" y="13">heading</text></g><g class="blocklyEditableText" transform="translate(67.17607116699219,5)" style="cursor: text;"><rect rx="4" ry="4" x="0" y="0" height="16" width="40.322113037109375" class="blocklyFieldRect"></rect><text class="blocklyText" x="5" y="13">300<tspan>°</tspan></text></g></g><g data-id="D^SfXxe~|dlhT}!Z|pT$" class="blocklyDraggable" style="display: block;" transform="translate(47.89332580566406,61)"><path class="blocklyPathDark" transform="translate(1,1)" fill="#7a4984" d=" m 0,0  m 0,8 a 8 8 0 0,1 8,-8  h 7  l 6,4  3,0  6,-4  h 74.34500122070312  v 5  H 104.34500122070312  V 5  H 104.34500122070312  V 21  H 104.34500122070312  V 21  V 25  h -96.34500122070312 a 8 8 0 0,1 -8,-8 z
+"></path><path class="blocklyPath" stroke="none" fill="#995ba5" d=" m 0,0  m 0,8 a 8 8 0 0,1 8,-8  h 7  l 6,4  3,0  6,-4  h 74.34500122070312  v 5  H 104.34500122070312  V 5  H 104.34500122070312  V 21  H 104.34500122070312  V 21  V 25  h -96.34500122070312 a 8 8 0 0,1 -8,-8 z
+" filter="none"></path><path class="blocklyPathLight" stroke="#b88cc0" d=" m 0,0  m 0.5,8 a 7.5 7.5 0 0,1 8,-7.5  H 14.5  h 0.5  l 6,4  3,0  6,-4  H 103.84500122070312  H 103.84500122070312  M 0,25  m 2.6966991411008934,-2.6966991411008934 a 7.5 7.5 0 0,1 -2.1966991411008934,-5.303300858899107  V 8 
+" style="display: inline;"></path><g transform="translate(10,5)"><text class="blocklyText" x="0" y="13">heading</text></g><g class="blocklyEditableText" transform="translate(67.17607116699219,5)" style="cursor: text;"><rect rx="4" ry="4" x="0" y="0" height="16" width="32.16893005371094" class="blocklyFieldRect"></rect><text class="blocklyText" x="5" y="13">60<tspan>°</tspan></text></g></g><g transform="translate(10,5)"><text class="blocklyText" x="0" y="13">if</text></g><g transform="translate(10,30)"><text class="blocklyText" x="0" y="13">do</text></g><g transform="translate(10,65)"><text class="blocklyText" x="0" y="13">else</text></g></g></g><g class="blocklyBubbleCanvas" transform="translate(188.01141357421875,0) scale(1)"></g><defs><filter id="blocklyEmbossFilter5443374544735895"><fegaussianblur in="SourceAlpha" stdDeviation="1" result="blur"></fegaussianblur><fespecularlighting in="blur" surfaceScale="1" specularConstant="0.5" specularExponent="10" lighting-color="white" result="specOut"><fepointlight x="-5000" y="-10000" z="20000"></fepointlight></fespecularlighting><fecomposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"></fecomposite><fecomposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"></fecomposite></filter><pattern id="blocklyDisabledPattern5443374544735895" patternUnits="userSpaceOnUse" width="10" height="10"><rect width="10" height="10" fill="#aaa"></rect><path d="M 0 0 L 10 10 M 10 0 L 0 10" stroke="#cc0"></path></pattern><filter id="blocklyDebugFilter5443374544735895" height="160%" width="180%" y="-30%" x="-40%"><fecomponenttransfer result="outBlur"><fefunca type="table" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"></fefunca></fecomponenttransfer><feflood flood-color="#ff0000" flood-opacity="0.5" result="outColor"></feflood><fecomposite in="outColor" in2="outBlur" operator="in" result="outGlow"></fecomposite></filter></defs></g></svg><svg class="blocklyFlyout" style="display: none"><path class="blocklyFlyoutBackground"></path><g class="blocklyWorkspace"><g class="blocklyBlockCanvas"><g class="blocklyCursor"><g width="100" height="5"><rect width="100" height="5" style="display: none"><animate attributeType="XML" attributeName="fill" dur="1s" values="#cc0a0a;transparent;transparent;" repeatCount="indefinite"></animate></rect><rect class="blocklyVerticalMarker" rx="10" ry="10" style="display: none"></rect><path transform="" style="display: none"><animate attributeType="XML" attributeName="fill" dur="1s" values="#cc0a0a;transparent;transparent;" repeatCount="indefinite"></animate></path><path transform="" style="display: none" fill="none" stroke-width="4"><animate attributeType="XML" attributeName="stroke" dur="1s" values="#cc0a0a;transparent;transparent;" repeatCount="indefinite"></animate></path></g></g></g><g class="blocklyBubbleCanvas"></g><defs><filter id="blocklyEmbossFilter8104755753861939"><fegaussianblur in="SourceAlpha" stdDeviation="1" result="blur"></fegaussianblur><fespecularlighting in="blur" surfaceScale="1" specularConstant="0.5" specularExponent="10" lighting-color="white" result="specOut"><fepointlight x="-5000" y="-10000" z="20000"></fepointlight></fespecularlighting><fecomposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"></fecomposite><fecomposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"></fecomposite></filter><pattern id="blocklyDisabledPattern8104755753861939" patternUnits="userSpaceOnUse" width="10" height="10"><rect width="10" height="10" fill="#aaa"></rect><path d="M 0 0 L 10 10 M 10 0 L 0 10" stroke="#cc0"></path></pattern><filter id="blocklyDebugFilter8104755753861939" height="160%" width="180%" y="-30%" x="-40%"><fecomponenttransfer result="outBlur"><fefunca type="table" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"></fefunca></fecomponenttransfer><feflood flood-color="#ff0000" flood-opacity="0.5" result="outColor"></feflood><fecomposite in="outColor" in2="outBlur" operator="in" result="outGlow"></fecomposite></filter></defs></g></svg><svg class="blocklyScrollbarVertical blocklyFlyoutScrollbar" width="15"><g><rect class="blocklyScrollbarBackground" width="15"></rect><rect class="blocklyScrollbarHandle" rx="5" ry="5" width="10" x="2.5"></rect></g></svg><svg class="blocklyFlyout" style="display: block; transform: translate(0px, 0px);" width="188.01141357421875" height="662"><path class="blocklyFlyoutBackground" d="M 0,0 h 180.01141357421875 a 8 8 0 0 1 8 8 v 646 a 8 8 0 0 1 -8 8 h -180.01141357421875 z"></path><g class="blocklyWorkspace"><g class="blocklyBlockCanvas" transform="translate(0,0) scale(1)"><g class="blocklyCursor"><g width="100" height="5"><rect width="100" height="5" style="display: none"><animate attributeType="XML" attributeName="fill" dur="1s" values="#cc0a0a;transparent;transparent;" repeatCount="indefinite"></animate></rect><rect class="blocklyVerticalMarker" rx="10" ry="10" style="display: none"></rect><path transform="" style="display: none"><animate attributeType="XML" attributeName="fill" dur="1s" values="#cc0a0a;transparent;transparent;" repeatCount="indefinite"></animate></path><path transform="" style="display: none" fill="none" stroke-width="4"><animate attributeType="XML" attributeName="stroke" dur="1s" values="#cc0a0a;transparent;transparent;" repeatCount="indefinite"></animate></path></g></g><rect fill-opacity="0" x="16" y="8" height="26" width="105.34500122070312"></rect><g data-id="+zF@0+m#,~6Vu$sc73,;" class="blocklyDraggable" transform="translate(16,8)"><path class="blocklyPathDark" transform="translate(1,1)" fill="#7a4984" d=" m 0,0  m 0,8 a 8 8 0 0,1 8,-8  h 7  l 6,4  3,0  6,-4  h 74.34500122070312  v 5  H 104.34500122070312  V 5  H 104.34500122070312  V 21  H 104.34500122070312  V 21  V 25  h -96.34500122070312 a 8 8 0 0,1 -8,-8 z
+"></path><path class="blocklyPath" stroke="none" fill="#995ba5" d=" m 0,0  m 0,8 a 8 8 0 0,1 8,-8  h 7  l 6,4  3,0  6,-4  h 74.34500122070312  v 5  H 104.34500122070312  V 5  H 104.34500122070312  V 21  H 104.34500122070312  V 21  V 25  h -96.34500122070312 a 8 8 0 0,1 -8,-8 z
+"></path><path class="blocklyPathLight" stroke="#b88cc0" d=" m 0,0  m 0.5,8 a 7.5 7.5 0 0,1 8,-7.5  H 14.5  h 0.5  l 6,4  3,0  6,-4  H 103.84500122070312  H 103.84500122070312  M 0,25  m 2.6966991411008934,-2.6966991411008934 a 7.5 7.5 0 0,1 -2.1966991411008934,-5.303300858899107  V 8 
+"></path><g transform="translate(10,5)"><text class="blocklyText" x="0" y="13">heading</text></g><g class="blocklyEditableText" transform="translate(67.17607116699219,5)" style="cursor: text;"><rect rx="4" ry="4" x="0" y="0" height="16" width="32.16893005371094" class="blocklyFieldRect"></rect><text class="blocklyText" x="5" y="13">90<tspan>°</tspan></text></g></g><rect fill-opacity="0" x="8" y="58" height="26" width="161.01141357421875"></rect><g data-id="24CGRE1DMT%OH3E$^rUK" class="blocklyDraggable" transform="translate(8,58)"><path class="blocklyPathDark" transform="translate(1,1)" fill="#844966" d=" m 8,0  h 152.01141357421875  v 5  H 160.01141357421875  V 5  H 160.01141357421875  V 21  H 160.01141357421875  V 21  V 25  h -152.01141357421875  H 8  V 20  c 0,-10  -8,8  -8,-7.5  s 8,2.5  8,-7.5 z
+"></path><path class="blocklyPath" stroke="none" fill="#a55b80" d=" m 8,0  h 152.01141357421875  v 5  H 160.01141357421875  V 5  H 160.01141357421875  V 21  H 160.01141357421875  V 21  V 25  h -152.01141357421875  H 8  V 20  c 0,-10  -8,8  -8,-7.5  s 8,2.5  8,-7.5 z
+"></path><path class="blocklyPathLight" stroke="#c08ca6" d=" m 8,0  m 0.5,0.5  H 159.51141357421875  H 159.51141357421875  M 8.5,24.5  M 8.5,24.5  V 20  v -1.5  m -7.36,-0.5  q -1.52,-5.5  0,-11  m 7.36,1  V 0.5 
+"></path><g transform="translate(18,5)"><text class="blocklyText" x="0" y="13">does&nbsp;not&nbsp;have&nbsp;worm</text></g></g></g><g class="blocklyBubbleCanvas" transform="translate(0,0) scale(1)"></g><defs><filter id="blocklyEmbossFilter6666121858130825"><fegaussianblur in="SourceAlpha" stdDeviation="1" result="blur"></fegaussianblur><fespecularlighting in="blur" surfaceScale="1" specularConstant="0.5" specularExponent="10" lighting-color="white" result="specOut"><fepointlight x="-5000" y="-10000" z="20000"></fepointlight></fespecularlighting><fecomposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"></fecomposite><fecomposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"></fecomposite></filter><pattern id="blocklyDisabledPattern6666121858130825" patternUnits="userSpaceOnUse" width="10" height="10"><rect width="10" height="10" fill="#aaa"></rect><path d="M 0 0 L 10 10 M 10 0 L 0 10" stroke="#cc0"></path></pattern><filter id="blocklyDebugFilter6666121858130825" height="160%" width="180%" y="-30%" x="-40%"><fecomponenttransfer result="outBlur"><fefunca type="table" tableValues="0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1"></fefunca></fecomponenttransfer><feflood flood-color="#ff0000" flood-opacity="0.5" result="outColor"></feflood><fecomposite in="outColor" in2="outBlur" operator="in" result="outGlow"></fecomposite></filter></defs></g></svg><svg class="blocklyScrollbarVertical blocklyFlyoutScrollbar" width="15" height="657" style="transform: translate(170.511px, 2.5px);" display="none"><g><rect class="blocklyScrollbarBackground" width="15" height="657"></rect><rect class="blocklyScrollbarHandle" rx="5" ry="5" width="10" x="2.5" height="657" y="0"></rect></g></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="blocklyBlockDragSurface"><g transform="translate(188,0) scale(1)"></g></svg><svg xmlns="http://www.w3.org/2000/svg" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="blocklyWsDragSurface blocklyOverflowVisible"></svg></div></div><div id="dialogShadow" class="dialogAnimate" style="visibility: hidden; opacity: 0; z-index: -1;"></div><div id="dialogBorder" style="visibility: hidden;"></div><div id="dialog" style="width: 40%; left: 30%; top: 3em; visibility: hidden; z-index: -1;"></div><div id="dialogAbort" class="dialogHiddenContent">This level is extremely difficult. Would you like to skip it and go onto the next game? You can always come back later.<div class="farSide" style="padding: 1ex 3ex 0"><button id="abortCancel" class="dialogCancel"></button><button id="abortOk" class="secondary dialogOk"></button></div></div><div id="dialogStorage" class="dialogHiddenContent"><div id="containerStorage"></div><div class="farSide" style="padding: 1ex 3ex 0"><button class="secondary dialogOk" onclick="BlocklyDialogs.hideDialog(true)"></button></div></div><div id="dialogHelp" class="dialogHiddenContent"></div><div class="blocklyWidgetDiv"></div><div class="blocklyDropDownDiv" style="opacity: 0; transition: transform 0.25s ease 0s, opacity 0.25s ease 0s;"><div class="blocklyDropDownContent"></div><div class="blocklyDropDownArrow"></div></div><div class="blocklyTooltipDiv"></div><canvas class="blocklyComputeCanvas"></canvas><div id="dialogDone" class=" dialogHiddenContent"><div style="font-size: large; margin: 1em;">Congratulations!</div><div id="dialogLinesText" style="font-size: large; margin: 1em;">You solved this level with 5 lines of JavaScript:</div><pre id="containerCode"><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">noWorm</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  heading</span><span class="pun">(</span><span class="lit">300</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  heading</span><span class="pun">(</span><span class="lit">60</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></pre><div id="dialogDoneText" style="font-size: large; margin: 1em;">Are you ready for level 4?</div><div id="dialogDoneButtons" class="farSide" style="padding: 1ex 3ex 0"><button id="doneCancel" class="dialogCancel">Cancel</button><button id="doneOk" class="secondary dialogOk">OK</button></div></div></body></html>
